@@ -1,6 +1,4 @@
-﻿using LIN.Types.Responses;
-
-namespace LIN.Search.Controllers;
+﻿namespace LIN.Search.Controllers;
 
 
 [Route("search")]
@@ -20,7 +18,7 @@ public class SearchController : ControllerBase
             return new()
             {
                 Message = "La consulta no puede estar vacío.",
-                Response = Types.Responses.Responses.InvalidParam,
+                Response = Responses.InvalidParam,
             };
 
         // Obtener información.
@@ -31,7 +29,7 @@ public class SearchController : ControllerBase
             return new()
             {
                 Message = $"Hubo un error al buscar '{query}'",
-                Response = Types.Responses.Responses.UnavailableService,
+                Response = Responses.UnavailableService,
             };
 
 
