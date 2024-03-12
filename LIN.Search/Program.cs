@@ -11,6 +11,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Swagger.
@@ -21,6 +33,8 @@ app.UseSwaggerUI();
 LIN.Exp.Search.Client.SetWeatherApi(Configuration.GetConfiguration("weather"));
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAnyOrigin");
 
 app.UseAuthorization();
 
