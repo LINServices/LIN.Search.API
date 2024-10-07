@@ -5,7 +5,7 @@
 public class MoviesController : ControllerBase
 {
 
-   
+
     [HttpGet]
     public async Task<HttpReadOneResponse<Movie>> GetMovie([FromQuery] string movie)
     {
@@ -19,13 +19,13 @@ public class MoviesController : ControllerBase
             };
 
         // Obtener información.
-      var response = await LIN.Exp.Search.Client.SearchMovie(movie);
+        var response = await LIN.Exp.Search.Client.SearchMovie(movie);
 
-    
+
         // Correcto.
         return new ReadOneResponse<Movie>
         {
-            Model= response,
+            Model = response,
             Response = Responses.Success
         };
 

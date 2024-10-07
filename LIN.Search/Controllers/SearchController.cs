@@ -83,9 +83,31 @@ public class SearchController : ControllerBase
                 Response = Responses.UnavailableService,
             };
 
+
+
+
+        LIN.Access.OpenIA.IAModelBuilder builder = new();
+        builder.Load(new Access.OpenIA.Models.Message()
+        {
+            Content = "Resume y completa con información que tengas, en un solo párrafo resume la información y completa.",
+            Rol = Access.OpenIA.Models.Roles.System
+        });
+
+
+        string message = "";
+        foreach(var e in search)
+        {
+            message += e.Snippet;
+        }
+
+        builder.Load(new Access.OpenIA.Models.Message() { Content = message, Rol = Access.OpenIA.Models.Roles.User });
+
+        var reply = await builder.Reply("Resume con la información que se te ha dado y con la información que fue entrenado.");
+
         // Correcto.
         return new ReadAllResponse<SearchResult>
         {
+            AlternativeObject = reply.Content,
             Models = search,
             Response = Responses.Success
         };

@@ -1,6 +1,5 @@
 ﻿namespace LIN.Search.Controllers;
 
-
 [Route("weather")]
 public class WeatherController : ControllerBase
 {
@@ -17,8 +16,8 @@ public class WeatherController : ControllerBase
         if (string.IsNullOrWhiteSpace(city))
             return new()
             {
-                Message = "City no puede estar vacío.",
-                Response = Responses.InvalidParam,
+                Message = "El campo 'City' no puede estar vacío.",
+                Response = Responses.InvalidParam
             };
 
         // Obtener información.
@@ -29,9 +28,8 @@ public class WeatherController : ControllerBase
             return new()
             {
                 Message = $"Hubo un error al obtener el tiempo de '{city}'",
-                Response = Responses.UnavailableService,
+                Response = Responses.UnavailableService
             };
-
 
         // Correcto.
         return new ReadOneResponse<Weather>
@@ -41,6 +39,5 @@ public class WeatherController : ControllerBase
         };
 
     }
-
 
 }

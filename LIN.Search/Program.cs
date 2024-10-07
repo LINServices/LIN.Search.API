@@ -3,25 +3,13 @@ global using LIN.Search;
 global using LIN.Types.Exp.Search.Models;
 global using Microsoft.AspNetCore.Mvc;
 global using LIN.Types.Responses;
+global using Http.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAnyOrigin",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
+builder.Services.AddLINHttp();
 
 var app = builder.Build();
 
@@ -32,10 +20,11 @@ app.UseSwaggerUI();
 // Establecer llave.
 LIN.Exp.Search.Client.SetWeatherApi(Configuration.GetConfiguration("weather"));
 LIN.Exp.Search.Client.SetMoviesApi(Configuration.GetConfiguration("imbd"));
+LIN.Access.OpenIA.OpenIA.SetKey(Configuration.GetConfiguration("openIA"));
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAnyOrigin");
+app.UseLINHttp();
 
 app.UseAuthorization();
 
