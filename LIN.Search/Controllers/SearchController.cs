@@ -87,10 +87,10 @@ public class SearchController : ControllerBase
 
 
         LIN.Access.OpenIA.IAModelBuilder builder = new();
-        builder.Load(new Access.OpenIA.Models.Message()
+        builder.Load(new LIN.Types.Cloud.OpenAssistant.Abstractions.Message()
         {
             Content = "Resume y completa con información que tengas, en un solo párrafo resume la información y completa.",
-            Rol = Access.OpenIA.Models.Roles.System
+            Rol = Types.Cloud.OpenAssistant.Abstractions.Roles.System
         });
 
 
@@ -100,14 +100,14 @@ public class SearchController : ControllerBase
             message += e.Snippet;
         }
 
-        builder.Load(new Access.OpenIA.Models.Message() { Content = message, Rol = Access.OpenIA.Models.Roles.User });
+        builder.Load(new Types.Cloud.OpenAssistant.Abstractions.Message() { Content = message, Rol = Types.Cloud.OpenAssistant.Abstractions.Roles.User});
 
         var reply = await builder.Reply("Resume con la información que se te ha dado y con la información que fue entrenado.");
 
         // Correcto.
         return new ReadAllResponse<SearchResult>
         {
-            AlternativeObject = reply.Content,
+            Alternatives = [reply.Content],
             Models = search,
             Response = Responses.Success
         };

@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Exp.Search", "..\..\..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Types.Exp.Search", "..\..\Tipos\LIN.Types.Exp.Search\LIN.Types.Exp.Search.csproj", "{E8DADA9E-BF5C-4D75-878F-90BEAC165B1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Http", "..\..\Tipos\Http\Http.csproj", "{127A28D0-6D43-4A20-AF08-B57667B7B79B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wikipedia", "..\..\..\LIN Experimental\Wikipedia.Client\src\Wikipedia\Wikipedia.csproj", "{467EEBCB-177A-4DC8-80F4-C0D420841A80}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIN.Access.Maps", "..\..\AccesoAPI\LIN.Access.Maps\LIN.Access.Maps.csproj", "{A72E71BE-FD94-415F-9F28-80310FE08B28}"
@@ -37,10 +35,6 @@ Global
 		{E8DADA9E-BF5C-4D75-878F-90BEAC165B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8DADA9E-BF5C-4D75-878F-90BEAC165B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8DADA9E-BF5C-4D75-878F-90BEAC165B1C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{127A28D0-6D43-4A20-AF08-B57667B7B79B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{127A28D0-6D43-4A20-AF08-B57667B7B79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{127A28D0-6D43-4A20-AF08-B57667B7B79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{127A28D0-6D43-4A20-AF08-B57667B7B79B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{467EEBCB-177A-4DC8-80F4-C0D420841A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{467EEBCB-177A-4DC8-80F4-C0D420841A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{467EEBCB-177A-4DC8-80F4-C0D420841A80}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -13,10 +13,6 @@ builder.Services.AddLINHttp();
 
 var app = builder.Build();
 
-// Swagger.
-app.UseSwagger();
-app.UseSwaggerUI();
-
 // Establecer llave.
 LIN.Exp.Search.Client.SetWeatherApi(Configuration.GetConfiguration("weather"));
 LIN.Exp.Search.Client.SetMoviesApi(Configuration.GetConfiguration("imbd"));
